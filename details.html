@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kek Tarifleri | Detay </title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const id = urlParams.get('id')
+        const cakes = [
+            {
+                id: 1,
+                img: "images/cakev2.jpg",
+                title: "Limonlu Cevizli Kek Tarifi",
+                text: "Çay saatlerinin en büyük kurtarıcısıdır kek tarifleri. Mutfağa girip 3 yumurtayı biraz şeker, un ve diğer sıvı malzemelerle karıştırıp fırına atıp, çayınızın yanına şipşak hazır bir tatlı yapabiliyoruz onlar sayesinde. En çok da klasiklerini seviyoruz. Keke en çok yakışan lezzetlerin başında da limon geliyor. Hamura sinen misler gibi limon kokusu, vanilyayla da buluşunca iştah açıyor, bir dilim daha yemeye davetiye çıkarıyor. Bu tarife bir de ceviz eklediğini düşünün. Şahane olmaz mı? Hadi o zaman gelin bugün limonlu cevizli kek tarifi yapalım. Bu tarifin içerisinde süt yok! Süt yerine yoğurt kullanılıyor. Daha tok kıvamlı ve yumuşacık bir dokusu oluyor. Sünger dokulu kek severlerin favorisi olmaya aday. Karşınızda: Limonlu cevizli kek tarifi!"
+            },
+            {
+                id: 2,
+                img: "images/cakev3.jpg",
+                title: "Mozaik Kek Tarifi",
+                text: "Şöyle bol soslu bir ıslak kek dilimine kim hayır diyebilir? Bir ısırıkla çikolata şelalesinden yudum alıyormuş gidi hissedeceğiniz bu browni tadında ıslak kek tarifi bol porsiyonlu, bol soslu bir kek tarifi. Fakat şimdiden uyaralım, bir kez tadına bakan muhakkak tarifini isteyecek! Bu enfes ıslak kekin tadını unutamayacaklar! Browni tadında bir ıslak kek hazırlarken tabii ki dikkat etmemiz gereken birkaç püf noktamız olacak. Mesela normal bir kek tarifine göre daha az un kullanacağız, kullandığımız sosu önce ıslatmak için kek sıcakken dökecek ardından içerisine çikolata ekleyerek tekrar üzerine gezdireceğiz. Browni tadında ıslak kek tarifini sizler için hazırladık, afiyetler olsun!"
+            },
+            {
+                id: 3,
+                img: "images/cakev4.jpg",
+                title: "Islak Kek Tarifi",
+                text: " Şöyle bol soslu bir ıslak kek dilimine kim hayır diyebilir? Bir ısırıkla çikolata şelalesinden yudum\n"+
+                    "alıyormuş gidi hissedeceğiniz bu browni tadında ıslak kek tarifi bol porsiyonlu, bol soslu bir kek tarifi. Fakat şimdiden uyaralım, bir kez tadına bakan muhakkak tarifini isteyecek! Bu enfes ıslak kekin tadını unutamayacaklar!"
+            },
+            {
+                id: 4,
+                img: "images/cakev5.jpg",
+                title: "Portakallı Kek Tarifi",
+                text: "Özellikle kış aylarında evin mis kokulu lezzetine dönüşüyor portakallı kek tarifi. Ancak portakallı kek yaparken kimi zaman ölçüleri şaşabiliyor ve kıvam sorunu yaşanabiliyor. Kıvam sorunu olmadan hazırlanan bir portakallı kek arayışı içerisindeyseniz, Ne yaparsam yapayım kekim hiç istediğim gibi olmuyor'' diyorsanız, derdinize çare olacak nefis bir kek tarifiyle tanıştıralım sizleri. Kokusu da tadı da dillere destan olacak muhteşem yoğurtlu portakallı kek tarifi ile karşınızdayız."
+            },
+            {
+                id: 5,
+                img: "images/cakev6.jpg",
+                title: "Mermer Kek Tarifi",
+                text: "  Her daim çay saatlerinin en gözdesi olmaya devam edecek mermer keki sevmeyen var mıdır? Normalde vanilya ve çikolata ile ayrı kek karışımı hazırlayarak yaptığımız bu kek tarifi pratik olmaktan çıkabiliyor. Fakat pratik haliyle yapmak da bir o kadar mümkün. Çikolata yerine kakao kullanarak hazırlıyoruz, içine de süt ve sıvı yağ koyuyoruz böylece pamuk gibi bir kek elde ediyoruz."
+            },
+            {
+                id: 6,
+                img: "images/cakev7.jpg",
+                title: "Puf Limonlu Kek Tarifi",
+                text: "Çay saatlerinizi güzelleştirecek, yemelere doyamayacağınız bir tarifle karşınızdayız. İç dokusu yumuşacık ve çok lezzetli bir kek bu. Misler gibi kokusunun sırrı da limon kabuğundan geliyor. İşin sırrı ise yumurta beyazlarını ve sarılarını ayrı ayrı çırpmakta saklı. Yumurta beyazlarını ayrıca çırpmak ve harca eklemek kekinize pofuduk ve şahane bir kıvam vermenin anahtarı."
+            },
+
+        ]
+
+        function getCake() {
+            const cake = cakes.find((x) => x.id == id);
+
+            document.getElementById("details-pic").setAttribute("src", cake.img);
+            document.getElementById("details-title").innerHTML = cake.title;
+            document.getElementById("details-text").innerHTML = cake.text;
+        }
+    </script>
+</head>
+
+<body onload="getCake()">
+
+    <header>
+        <div class="container">
+            <h1> Kek Tarifleri </h1>
+            <form>
+                <input for="search" type="text" placeholder="Ara">
+            </form>
+        </div>
+    </header>
+
+    <div class="spacer"></div>
+
+    <section>
+        <div class="container">
+            <div class="details-page">
+                <img id="details-pic">
+                <div id="details-title" class="details-page-title">
+                    
+                </div>
+                <div id="details-text" class="details-page-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ut vel repellendus recusandae libero
+                    necessitatibus pariatur ipsum unde mollitia ad, veniam modi dolor reprehenderit cum deserunt.
+                    Voluptas voluptate officiis ipsam eveniet, vero vel eius, incidunt excepturi provident tenetur saepe
+                    nemo, et inventore aliquid. Incidunt, optio vero. Repellat error necessitatibus magnam.
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+
+</html>
